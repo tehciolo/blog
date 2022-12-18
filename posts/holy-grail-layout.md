@@ -10,6 +10,17 @@ up. It is powered by [Fresh](https://fresh.deno.dev/), a new framework from the
 [Deno](https://deno.land/) folks. You can check the source code
 [here](https://github.com/tehciolo/blog/tree/1ba5b3b281c7933e36da05258fe84442c3c2ceab).
 
+## Goals
+
+1. implement page layout to accomodate a header and a footer
+2. sanctify afrontmentioned page layout
+3. use Tailwind
+
+The last one is there because I have not used Tailwind up until now and I want
+to try it out.
+
+## Execution
+
 Let's look at the blog post page:
 
 ![Initial commit(ment) screenshot](/blog-post-initial.png)
@@ -186,3 +197,8 @@ with:
 ![Initial commit(ment) screenshot](/blog-post-final.png)
 
 Success!
+
+## Conclusion
+
+We've reached all our goals, with the _small_ caveat that the holy grail layout
+is more of a holy grail light layout.
