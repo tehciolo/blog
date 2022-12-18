@@ -77,8 +77,8 @@ export default function Layout(props: { children: ComponentChildren }) {
 }
 ```
 
-This allows us to have the page sections be full-width, but with the content
-restricted to the `Container`. This bring flexibility in terms of styling.
+This allows us to have the full-width page sections, but with the content
+restricted to the `Container`. This brings flexibility in terms of styling.
 
 Let's also tidy up the blog post page (`[slug].tsx`):
 
@@ -128,9 +128,11 @@ Doesn't that mean we just need a sticky footer? Well, yes. However, that title
 would not bring me a gazillion readers. Also, we will be building this so that
 we can easily extend it later to add the sidebars.
 
-Everything we want to achieve here can be done with the following CSS rule:
+Everything we want to achieve here can be done with a CSS rule like the
+following:
 
 ```css
+/* equivalent Tailwind utility classes in comments below, next to declarations */
 .holy-grail {
   display: grid; /* grid */
   grid-template-rows: auto 1fr auto; /* ? */
