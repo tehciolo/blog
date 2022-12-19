@@ -39,6 +39,17 @@ export default function PostPage(props: PageProps<Post>) {
             dangerouslySetInnerHTML={{ __html: render(post.content) }}
           />
         </div>
+
+        <script
+          src="https://utteranc.es/client.js"
+          repo="tehciolo/blog"
+          issue-term="pathname"
+          label="utterances"
+          theme="github-light"
+          crossorigin="anonymous"
+          async
+        >
+        </script>
       </Layout>
     </>
   );
