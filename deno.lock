@@ -370,6 +370,9 @@
     "https://esm.sh/preact@10.11.0/hooks": "2b8ec155eb8b87501663f074acff1d55a9114fa7d88f0b39da06c940af1ff736",
     "https://esm.sh/preact@10.11.0/jsx-runtime": "5c123264f19799ab243211132dded45f6d42d594b5c78dd585f947d07bf20eae",
     "https://esm.sh/prismjs@1.27.0": "0277fd13ec102e3b00587cc8bb5028ec030df97c70adea2cfb0b70cef4b70ff8",
+    "https://esm.sh/prismjs@1.27.0/components/prism-jsx?no-check": "d7fa269e4559841c4eb5b9984dbd4f9e28066617b407f1e9dbf40ef90083abbc",
+    "https://esm.sh/prismjs@1.27.0/components/prism-tsx?no-check": "271217bef1dfd9359165a80ced591e82e8a32f5344a558ebb26e12ec6476b842",
+    "https://esm.sh/prismjs@1.27.0/components/prism-typescript?no-check": "53f816678614040d8d701880cbdbeb039ca727de9c5873cd02840170c7320a1c",
     "https://esm.sh/sanitize-html@2.7.0": "3c2d9386a8a63ad8cbfafeb475023b8f8c767296212335fe2ebe86e34ae778d3",
     "https://esm.sh/stable/preact@10.11.0/deno/hooks.js": "48b7674c1f0c2a0f8a0f758b786f5bc15ba0f7a4f3a356ecc783848f1e4a1c55",
     "https://esm.sh/stable/preact@10.11.0/deno/jsx-runtime.js": "b5a8e96758c20b5dea05802c6f6962b8a95bfdbd476eb4ea51cf3234f6e09271",
@@ -432,6 +435,9 @@
     "https://esm.sh/v98/twind@0.16.17/deno/sheets.js": "f75586c3a778278f99ca9e6761e8c8a2089c66d6a503bb25e3bba38597fe1e30",
     "https://esm.sh/v98/twind@0.16.17/deno/twind.js": "9774a4f1ddf2c1655f38040aa9c82ad921055b92bb8a62f5251625264e40ce02",
     "https://esm.sh/v98/twind@0.16.17/sheets/sheets.d.ts": "ac65f165be285376a1625e01252201a4c9e4cebe0078a5b2e47ca3e5fde76489",
-    "https://esm.sh/v98/twind@0.16.17/twind.d.ts": "795f4921b74adee8a90dfeb4e71e524f83b1822a307692e2c36874120629ebd9"
+    "https://esm.sh/v98/twind@0.16.17/twind.d.ts": "795f4921b74adee8a90dfeb4e71e524f83b1822a307692e2c36874120629ebd9",
+    "https://esm.sh/v99/prismjs@1.27.0/deno/components/prism-jsx.js": "9af5af633386af41877997157f510e0fd767d1a92f6930e2644d856044ac8ea0",
+    "https://esm.sh/v99/prismjs@1.27.0/deno/components/prism-tsx.js": "bd57b4d6ea299946bbb83ae64cf8325ff6df799ba9c25ee6ff68fe8e5d5def55",
+    "https://esm.sh/v99/prismjs@1.27.0/deno/components/prism-typescript.js": "f265c5bc1e9c272d1ddb57488abcf5d5d9c87feaf19574dea667eeec6b6b5377"
   }
 }
