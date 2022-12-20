@@ -14,7 +14,7 @@ up. It is powered by [Fresh](https://fresh.deno.dev/), a new framework from the
 
 1. implement page layout to accomodate a header and a footer
 2. sanctify afrontmentioned page layout
-3. use Tailwind
+3. use [Tailwind](https://tailwindcss.com/)
 
 The last one is there because I have not used Tailwind up until now and I want
 to try it out.
@@ -147,6 +147,7 @@ following:
 .holy-grail {
   display: grid; /* grid */
   grid-template-rows: auto 1fr auto; /* ? */
+  grid-template-columns: minmax(0, 1fr); /* grid-cols-1 */
   height: 100vh; /* h-screen */
 }
 ```
@@ -177,7 +178,7 @@ We can now apply all needed classes to the root of our layout:
 ```tsx
 // Layout.tsx
 return (
-  <div class="grid grid-rows-holy h-screen">
+  <div class="grid grid-cols-1 grid-rows-holy h-screen">
     <header>
       <Container>header</Container>
     </header>
@@ -201,4 +202,4 @@ Success!
 ## Conclusion
 
 We've reached all our goals, with the _small_ caveat that the holy grail layout
-is more of a holy grail light layout.
+is more of a holy grail light layout. Fewer calories FTW!

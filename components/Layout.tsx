@@ -4,7 +4,7 @@ import Container from "./Container.tsx";
 export default function Layout(props: { children: ComponentChildren }) {
   const { children } = props;
   return (
-    <div class="grid grid-rows-holy h-screen">
+    <div class="grid grid-cols-1 grid-rows-holy h-screen">
       <header class="py-4">
         <Container>
           <a class="text-xl font-mono font-bold text-[#0969da]" href="/">
