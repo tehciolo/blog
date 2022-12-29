@@ -6,7 +6,9 @@ snippet: Add meta tags for Search Engine Optimization (SEO) and rich link previe
 
 In an effort to one-up [my last post](/holy-grail-layout)'s intro, let's go **a
 lot meta**! In addition to working on _this_ blog again, we will also be working
-with `<meta>` tags. Starting point source code can be found
+with
+[`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset)
+tags. Starting point source code can be found
 [here](https://github.com/tehciolo/blog/tree/efae8691c4cfe6199a3502397634e945cf91f115).
 
 We currently have a grand total of **2** `<meta>` tags on the blog post page:
@@ -104,4 +106,5 @@ Here's a sneak peek of the results:
 
 ![Blog Post link preview](/meta-tags.png)
 
-Yes. That's my face.
+Yes. That's my face. (Drawing commisioned from
+[ReverentGeek](https://reverentgeek.com/shop/))
