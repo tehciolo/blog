@@ -12,17 +12,40 @@ export const handler: Handlers<Post> = {
   async GET(_req, ctx) {
     const post = await getPost(ctx.params.slug);
     if (post === null) return ctx.renderNotFound();
+
     return ctx.render(post);
   },
 };
 
 export default function PostPage(props: PageProps<Post>) {
-  const post = props.data;
+  const { data: post, url } = props;
+  const publishedTime = post.publishedAt.toISOString();
+
   return (
     <>
       <Head>
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
         <link rel="stylesheet" href="/app.css" />
+
+        <title>{post.title}</title>
+        <meta name="title" content={post.title} />
+        <meta name="description" content={post.snippet} />
+        <meta property="article:published_time" content={publishedTime} />
+        <meta property="article:author" content="Cosmin Cioacla" />
+        <meta property="article:section" content="Web Development" />
+        {/* <meta property="article:tag" content="" /> */}
+
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`${url.origin}/${post.slug}`} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.snippet} />
+        <meta property="og:image" content={`${url.origin}/hero.jpg`} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`${url.origin}/${post.slug}`} />
+        <meta property="twitter:title" content={post.title} />
+        <meta property="twitter:description" content={post.snippet} />
+        <meta property="twitter:image" content={`${url.origin}/hero.jpg`} />
       </Head>
       <Layout>
         <div class="py-8">
