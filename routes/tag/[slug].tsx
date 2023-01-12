@@ -1,34 +1,34 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { getPosts, Post, Tag } from "@/utils/posts.ts";
-import Layout from "@/components/Layout.tsx";
+import { getPosts, Post } from "@/utils/posts.ts";
 import { Head } from "$fresh/runtime.ts";
+import Layout from "@/components/Layout.tsx";
 import PostCard from "@/components/PostCard.tsx";
-import PostTags from "@/components/PostTags.tsx";
 
 export const handler: Handlers<Post[]> = {
   async GET(_req, ctx) {
-    const posts = await getPosts({});
+    const posts = await getPosts({ tag: ctx.params.slug });
+    if (posts.length === 0) return ctx.renderNotFound();
+
     return ctx.render(posts);
   },
 };
 
-export default function BlogIndexPage(props: PageProps<Post[]>) {
-  const posts = props.data;
-
-  const tags = posts.reduce((tags, post) => {
-    return post.tags ? tags.concat(post.tags) : tags;
-  }, [] as Tag[]);
-
-  const uniqueTags = Array.from(new Set(tags));
+export default function TagPage(props: PageProps<Post[]>) {
+  const { data: posts, url } = props;
 
   return (
     <>
       <Head>
-        <title>Cosmin Cioacla's blog</title>
-        <meta name="title" content="Cosmin Cioacla's blog" />
+        <link rel="stylesheet" href="/app.css" />
+
+        <title>#{props.params.slug} - Cosmin Cioacla's blog</title>
+        <meta
+          name="title"
+          content={`#${props.params.slug} - Cosmin Cioacla's blog`}
+        />
         <meta
           name="description"
-          content="A blog about learning. Mostly Web Development."
+          content={`A blog about learning. Mostly Web Development. The ${props.params.slug} tag page.`}
         />
         <link
           rel="apple-touch-icon"
@@ -51,15 +51,10 @@ export default function BlogIndexPage(props: PageProps<Post[]>) {
       </Head>
       <Layout>
         <div class="py-8">
-          <h1 class="text-5xl font-bold sr-only">Blog</h1>
-          <section class="mb-8">
-            <h2 class="mb-2 sr-only">Posts</h2>
+          <h1 class="text-5xl font-bold mb-2">#{props.params.slug}</h1>
+          <div>
             {posts.map((post) => <PostCard post={post} />)}
-          </section>
-          <section>
-            <h2 class="text-xl mb-4">Tag cloud</h2>
-            <PostTags tags={uniqueTags} />
-          </section>
+          </div>
         </div>
       </Layout>
     </>
