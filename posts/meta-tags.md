@@ -2,6 +2,7 @@
 title: Blog visibility and coat of paint
 published_at: 2022-12-29T10:11:48.346Z
 snippet: Add meta tags for Search Engine Optimization (SEO) and rich link previews support.
+tags: ['seo', 'blog', 'html']
 ---
 
 In an effort to one-up [my last post](/holy-grail-layout)'s intro, let's go **a
@@ -100,7 +101,8 @@ at some point in the future, the blog will support individual images per blog
 post.
 
 I commented out the article tags for now, but I will tackle this in my next blog
-post where we will add a tagging system to the blog.
+post where we will add a tagging system to the blog (LE: [here](/post-tags) it
+is).
 
 Here's a sneak peek of the results:
 

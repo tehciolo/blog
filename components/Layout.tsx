@@ -1,5 +1,5 @@
 import { ComponentChildren } from "preact";
-import Container from "./Container.tsx";
+import Container from "@/components/Container.tsx";
 
 export default function Layout(props: { children: ComponentChildren }) {
   const { children } = props;
@@ -18,7 +18,7 @@ export default function Layout(props: { children: ComponentChildren }) {
       <footer class="py-4">
         <Container>
           <p class="text-center">
-            © Cosmin Cioaclă 2022{" "}
+            © Cosmin Cioaclă 2022 - 2023{" "}
             <img
               class="inline align-middle"
               src="/fresh-logo.svg"

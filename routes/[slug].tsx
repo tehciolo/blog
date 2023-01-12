@@ -7,6 +7,8 @@ import Layout from "@/components/Layout.tsx";
 import "https://esm.sh/prismjs@1.27.0/components/prism-typescript?no-check";
 import "https://esm.sh/prismjs@1.27.0/components/prism-jsx?no-check";
 import "https://esm.sh/prismjs@1.27.0/components/prism-tsx?no-check";
+import "https://esm.sh/prismjs@1.27.0/components/prism-yaml?no-check";
+import PostTags from "@/components/PostTags.tsx";
 
 export const handler: Handlers<Post> = {
   async GET(_req, ctx) {
@@ -33,7 +35,7 @@ export default function PostPage(props: PageProps<Post>) {
         <meta property="article:published_time" content={publishedTime} />
         <meta property="article:author" content="Cosmin Cioacla" />
         <meta property="article:section" content="Web Development" />
-        {/* <meta property="article:tag" content="" /> */}
+        <meta property="article:tag" content={post.tags?.join(", ")} />
 
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`${url.origin}/${post.slug}`} />
@@ -49,7 +51,8 @@ export default function PostPage(props: PageProps<Post>) {
       </Head>
       <Layout>
         <div class="py-8">
-          <h1 class="text-5xl font-bold">{post.title}</h1>
+          <h1 class="text-5xl font-bold mb-2">{post.title}</h1>
+          <PostTags tags={post.tags} />
           <time class="text-gray-500">
             {new Date(post.publishedAt).toLocaleDateString("en-us", {
               year: "numeric",

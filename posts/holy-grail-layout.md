@@ -2,6 +2,7 @@
 title: Holy Grail Layout using CSS Grid via Tailwind
 published_at: 2022-12-18T17:16:15.329Z
 snippet: Add a layout to the blog post page.
+tags: ['css-grid', 'tailwind', 'blog']
 ---
 
 We are going a bit meta today and will be working on _this_ blog. I used
