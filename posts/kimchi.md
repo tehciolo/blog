@@ -76,8 +76,8 @@ It's also fermented, and I think we can all agree that things that are
 things that are not. Last but not least, there's some nice
 [research](https://pubmed.ncbi.nlm.nih.gov/24456350/) on it.
 
-But Cosmin, why buy it when it's readily available basically "everywhere"? Well,
-as a wise man once said, **"Everything tastes better when you make it from
+But Cosmin, why not buy it when it's readily available basically "everywhere"?
+Well, as a wise man once said, **"Everything tastes better when you make it from
 scratch"** ([Joshua Weissman](https://www.joshuaweissman.com/)). Actually, this
 recipe is ripped off from said Weissman, and adjusted here and there when it
 comes to quantities.
