@@ -74,8 +74,7 @@ export default function PostPage(props: PageProps<Post>) {
           theme="github-light"
           crossorigin="anonymous"
           async
-        >
-        </script>
+        />
       </Layout>
     </>
   );
