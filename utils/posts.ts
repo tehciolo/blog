@@ -11,37 +11,43 @@ export interface Post {
   tags?: Tag[];
 }
 
-export async function getPosts({ tag }: { tag?: string }): Promise<Post[]> {
+export async function readAllPosts({ tag }: { tag?: string }): Promise<Post[]> {
   const files = Deno.readDir("./posts");
-  const promises: ReturnType<typeof getPost>[] = [];
+  const promises: ReturnType<typeof readPost>[] = [];
   for await (const file of files) {
     const slug = file.name.replace(".md", "");
-    promises.push(getPost(slug));
+    promises.push(readPost(slug));
   }
-  const posts = (await Promise.all(promises)).filter(isPost);
-  posts
-    .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
-  return tag ? posts.filter((post) => post.tags?.includes(tag)) : posts;
+  const posts = (await Promise.all(promises))
+    .filter(isPost)
+    .sort(byPublishedAt);
+  return tag ? posts.filter(postHasTag(tag)) : posts;
 }
 
-export async function getPost(slug: string) {
-  try {
-    const text = await Deno.readTextFile(join("./posts", `${slug}.md`));
-    const { attrs, body } = extract(text);
-    const post: Post = {
-      slug,
-      title: attrs.title as string,
-      publishedAt: new Date(attrs.published_at as string),
-      content: body,
-      snippet: attrs.snippet as string,
-      tags: attrs.tags as Tag[],
-    };
-    return post;
-  } catch {
-    return null;
-  }
+export function readPost(slug: string) {
+  return Deno
+    .readTextFile(join("./posts", `${slug}.md`))
+    .then((text) => {
+      const { attrs, body } = extract(text);
+      const post: Post = {
+        slug,
+        title: attrs.title as string,
+        publishedAt: new Date(attrs.published_at as string),
+        content: body,
+        snippet: attrs.snippet as string,
+        tags: attrs.tags as Tag[],
+      };
+      return post;
+    })
+    .catch(() => null);
 }
 
-function isPost(maybePost: Post | null): maybePost is Post {
-  return maybePost !== null;
-}
+export const getAllTags = (posts: Post[]) =>
+  posts.reduce<Tag[]>(aggregateTags, []);
+
+const isPost = (maybePost: Post | null): maybePost is Post =>
+  maybePost !== null;
+const byPublishedAt = (a: Post, b: Post) =>
+  b.publishedAt.getTime() - a.publishedAt.getTime();
+const postHasTag = (tag: string) => (post: Post) => post.tags?.includes(tag);
+const aggregateTags = (tags: Tag[], post: Post) => tags.concat(post.tags ?? []);

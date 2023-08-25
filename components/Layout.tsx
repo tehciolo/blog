@@ -1,42 +1,18 @@
 import { ComponentChildren } from "preact";
-import Container from "@/components/Container.tsx";
+import { Container } from "@/components/Container.tsx";
+import { Header } from "@/components/Header.tsx";
+import { Footer } from "@/components/Footer.tsx";
 
-export default function Layout(props: { children: ComponentChildren }) {
-  const { children } = props;
+export const Layout = ({ children }: { children: ComponentChildren }) => {
   return (
     <div class="grid grid-cols-1 grid-rows-holy h-screen">
-      <header class="py-4">
-        <Container>
-          <a class="text-xl font-mono font-bold text-[#0969da]" href="/">
-            [].blog()
-          </a>
-        </Container>
-      </header>
+      <Header />
+
       <main>
         <Container>{children}</Container>
       </main>
-      <footer class="py-4">
-        <Container>
-          <p class="text-center">
-            © Cosmin Cioaclă 2022 - 2023{" "}
-            <img
-              class="inline align-middle"
-              src="/fresh-logo.svg"
-              width="20px"
-              height="20px"
-              alt="the fresh logo: a sliced lemon dripping with juice"
-            />{" "}
-            Freshly squeezed by a Denosaur{" "}
-            <img
-              class="inline align-middle"
-              src="/deno-logo.svg"
-              width="20px"
-              height="20px"
-              alt="the deno logo: a dinosaur head in the rain"
-            />
-          </p>
-        </Container>
-      </footer>
+
+      <Footer />
     </div>
   );
-}
+};
