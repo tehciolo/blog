@@ -1,6 +1,6 @@
 import { Post } from "@/utils/posts.ts";
 
-export default function PostTags({ tags }: { tags: Post["tags"] }) {
+export const PostTags = ({ tags }: { tags: Post["tags"] }) => {
   return (
     <ul class="list-none mb-2">
       {tags?.map((tag) => (
@@ -15,4 +15,4 @@ export default function PostTags({ tags }: { tags: Post["tags"] }) {
       ))}
     </ul>
   );
-}
+};

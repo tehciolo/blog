@@ -1,5 +1,5 @@
 import { ErrorPageProps } from "$fresh/server.ts";
-import Layout from "@/components/Layout.tsx";
+import { Layout } from "@/components/Layout.tsx";
 
 export default function Error500Page({ error }: ErrorPageProps) {
   return (
