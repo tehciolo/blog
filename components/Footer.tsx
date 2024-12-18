@@ -4,7 +4,7 @@ export const Footer = () => (
   <footer class="py-4">
     <Container>
       <p class="text-center">
-        © Cosmin Cioaclă 2022 - 2023{" "}
+        © Cosmin Cioaclă 2022 - 2024{" "}
         <img
           class="inline align-middle"
           src="/fresh-logo.svg"
