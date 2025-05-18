@@ -1,11 +1,11 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Post, readPost } from "@/utils/posts.ts";
-import { render } from "$gfm";
+import { render } from "@deno/gfm";
 
-import "https://esm.sh/prismjs@1.27.0/components/prism-typescript?no-check";
-import "https://esm.sh/prismjs@1.27.0/components/prism-jsx?no-check";
-import "https://esm.sh/prismjs@1.27.0/components/prism-tsx?no-check";
-import "https://esm.sh/prismjs@1.27.0/components/prism-yaml?no-check";
+import "https://esm.sh/prismjs@1.30.0/components/prism-typescript?no-check";
+import "https://esm.sh/prismjs@1.30.0/components/prism-jsx?no-check";
+import "https://esm.sh/prismjs@1.30.0/components/prism-tsx?no-check";
+import "https://esm.sh/prismjs@1.30.0/components/prism-yaml?no-check";
 
 import { Layout } from "@/components/Layout.tsx";
 import { PostComments, PostHead, PostTags } from "@/components/post/index.ts";

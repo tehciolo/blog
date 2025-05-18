@@ -1,7 +1,6 @@
 export const CommonHead = () => {
   return (
     <>
-      <link rel="stylesheet" href="/app.css" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"

@@ -35,7 +35,7 @@ export default function TagPage({ data: posts, params }: PageProps<Post[]>) {
         <div class="py-8">
           <h1 class="text-5xl font-bold mb-2">#{params.slug}</h1>
           <div>
-            {posts.map((post) => <PostCard post={post} />)}
+            {posts.map((post) => <PostCard key={post.slug} post={post} />)}
           </div>
         </div>
       </Layout>
