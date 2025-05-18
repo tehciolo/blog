@@ -1,7 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { Head } from "$fresh/runtime.ts";
 import { getAllTags, Post, readAllPosts } from "@/utils/posts.ts";
 import { Layout } from "@/components/Layout.tsx";
-import { Head } from "$fresh/runtime.ts";
 import { PostCard, PostTags } from "@/components/post/index.ts";
 import { CommonHead } from "@/components/CommonHead.tsx";
 
@@ -36,7 +36,7 @@ export default function BlogIndexPage({ data: posts }: PageProps<Post[]>) {
           <h1 class="text-5xl font-bold sr-only">Blog</h1>
           <section class="mb-8">
             <h2 class="mb-2 sr-only">Posts</h2>
-            {posts.map((post) => <PostCard post={post} />)}
+            {posts.map((post) => <PostCard key={post.slug} post={post} />)}
           </section>
           <section>
             <h2 class="text-xl mb-4">Tag cloud</h2>

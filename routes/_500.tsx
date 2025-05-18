@@ -1,13 +1,17 @@
-import { ErrorPageProps } from "$fresh/server.ts";
+import { Head } from "$fresh/runtime.ts";
 import { Layout } from "@/components/Layout.tsx";
 
-export default function Error500Page({ error }: ErrorPageProps) {
+export default function Error500() {
   return (
-    <Layout>
-      <div class="py-8">
-        <h1 class="text-5xl font-bold mb-8">500</h1>
-        <p>Internal error: {(error as Error).message}</p>
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>500 - Internal error</title>
+      </Head>
+
+      <Layout>
+        <h1 class="text-4xl font-bold">500 - Internal error</h1>
+        <a href="/" class="underline">Go back home</a>
+      </Layout>
+    </>
   );
 }

@@ -1,13 +1,20 @@
-import { UnknownPageProps } from "$fresh/server.ts";
+import { Head } from "$fresh/runtime.ts";
 import { Layout } from "@/components/Layout.tsx";
 
-export default function NotFoundPage({ url }: UnknownPageProps) {
+export default function Error404() {
   return (
-    <Layout>
-      <div class="py-8">
-        <h1 class="text-5xl font-bold mb-8">404</h1>
-        <p>Not found: {url.pathname}</p>
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>404 - Page not found</title>
+      </Head>
+
+      <Layout>
+        <h1 class="text-4xl font-bold">404 - Page not found</h1>
+        <p class="my-4">
+          The page you were looking for doesn't exist.
+        </p>
+        <a href="/" class="underline">Go back home</a>
+      </Layout>
+    </>
   );
 }

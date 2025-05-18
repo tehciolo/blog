@@ -1,5 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
-import { CSS } from "$gfm";
+import { CSS } from "@deno/gfm";
 import { Post } from "@/utils/posts.ts";
 import { CommonHead } from "@/components/CommonHead.tsx";
 
