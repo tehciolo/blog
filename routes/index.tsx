@@ -5,10 +5,11 @@ import { Layout } from "@/components/Layout.tsx";
 import { PostCard, PostTags } from "@/components/post/index.ts";
 import { CommonHead } from "@/components/CommonHead.tsx";
 
-export const handler: Handlers<Post[]> = {
+export const handler: Handlers<readonly Post[]> = {
   GET(_req, ctx) {
     return readAllPosts({})
-      .then(ctx.render);
+      .then(ctx.render)
+      .catch(ctx.renderNotFound);
   },
 };
 

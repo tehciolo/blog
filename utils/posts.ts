@@ -1,5 +1,10 @@
 import { extract } from "$std/front_matter/any.ts";
 import { join } from "$std/path/mod.ts";
+import * as AI from "jsr:@baetheus/fun/async_iterable";
+import * as A from "jsr:@baetheus/fun/array";
+import { flow, pipe } from "jsr:@baetheus/fun/fn";
+import * as S from "jsr:@baetheus/fun/sortable";
+import * as P from "jsr:@baetheus/fun/promise";
 
 export type Tag = string;
 export interface Post {
@@ -11,17 +16,24 @@ export interface Post {
   tags?: Tag[];
 }
 
-export async function readAllPosts({ tag }: { tag?: string }): Promise<Post[]> {
-  const files = Deno.readDir("./posts");
-  const promises: ReturnType<typeof readPost>[] = [];
-  for await (const file of files) {
-    const slug = file.name.replace(".md", "");
-    promises.push(readPost(slug));
-  }
-  const posts = (await Promise.all(promises))
-    .filter(isPost)
-    .sort(byPublishedAt);
-  return tag ? posts.filter(postHasTag(tag)) : posts;
+export function readAllPosts(
+  { tag }: { tag?: string },
+): Promise<readonly Post[]> {
+  const postMatchesTag = byTag(tag);
+
+  return pipe(
+    Deno.readDir("./posts"),
+    AI.map((file) => file.name.replace(".md", "")),
+    AI.map(readPost),
+    AI.collect,
+    P.map(
+      flow(
+        A.filter(isPost),
+        A.filter(postMatchesTag),
+        A.sort(S.fromSort(byPublishedAt)),
+      ),
+    ),
+  );
 }
 
 export function readPost(slug: string) {
@@ -48,6 +60,9 @@ export const getAllTags = (posts: Post[]) =>
 const isPost = (maybePost: Post | null): maybePost is Post =>
   maybePost !== null;
 const byPublishedAt = (a: Post, b: Post) =>
-  b.publishedAt.getTime() - a.publishedAt.getTime();
-const postHasTag = (tag: string) => (post: Post) => post.tags?.includes(tag);
+  S.sign(b.publishedAt.getTime() - a.publishedAt.getTime());
+const postHasTag = (tag: string) => (post: Post) =>
+  post.tags?.includes(tag) ?? false;
+const byTag = (tag?: Tag) => (post: Post): boolean =>
+  tag ? postHasTag(tag)(post) : true;
 const aggregateTags = (tags: Tag[], post: Post) => tags.concat(post.tags ?? []);

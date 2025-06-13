@@ -5,12 +5,13 @@ import { Layout } from "@/components/Layout.tsx";
 import { PostCard } from "@/components/post/index.ts";
 import { CommonHead } from "@/components/CommonHead.tsx";
 
-export const handler: Handlers<Post[]> = {
+export const handler: Handlers<readonly Post[]> = {
   GET(_req, ctx) {
     return readAllPosts({ tag: ctx.params.slug })
       .then((posts) =>
         posts.length === 0 ? ctx.renderNotFound() : ctx.render(posts)
-      );
+      )
+      .catch(ctx.renderNotFound);
   },
 };
 
